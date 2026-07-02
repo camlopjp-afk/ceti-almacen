@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crear Item - Sistema CETI</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/dashboard.css" rel="stylesheet" />
+    <style>
+      body { font-size: .875rem; }
+      .sidebar { position: fixed; top: 0; bottom: 0; left: 0; z-index: 100; padding: 48px 0 0; box-shadow: inset -1px 0 0 rgba(0,0,0,.1); }
+      .navbar-brand { padding-top: .75rem; padding-bottom: .75rem; font-size: 1rem; background-color: rgba(0,0,0,.25); box-shadow: inset -1px 0 0 rgba(0,0,0,.25); }
+    </style>
+  </head>
+  <body data-module="items" data-action="create">
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="../dashboard.html">
+        <img src="../assets/images/logo-ceti.png" alt="CETI" height="30" class="d-inline-block align-top" />
+        Sistema Inventario
+      </a>
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <span class="navbar-text me-3">Admin CETI</span>
+          <a class="btn btn-outline-light btn-sm" href="../index.html">Cerrar Sesión</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+          <div class="position-sticky pt-3">
+            <ul class="nav flex-column">
+              <li class="nav-item"><a class="nav-link" href="../dashboard.html">Dashboard</a></li>
+              <li class="nav-item"><a class="nav-link" href="usuarios.html">Usuarios</a></li>
+              <li class="nav-item"><a class="nav-link" href="almacenes.html">Almacenes</a></li>
+              <li class="nav-item"><a class="nav-link" href="categorias.html">Categorías</a></li>
+              <li class="nav-item"><a class="nav-link active" href="items.html">Items</a></li>
+              <li class="nav-item"><a class="nav-link" href="reportes.html">Reportes</a></li>
+            </ul>
+          </div>
+        </nav>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
+          <div class="d-flex justify-content-between align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2">Crear Nuevo Item</h1>
+            <a href="items.html" class="btn btn-secondary">Volver</a>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <form id="module-form">
+                <div class="row">
+                  <div class="col-md-6 mb-3"><label class="form-label">Nombre del Item</label><input type="text" class="form-control" name="nombre_item" /></div>
+                  <div class="col-md-6 mb-3"><label class="form-label">Categoría</label><select class="form-control" name="id_categoria"><option>Tecnología</option></select></div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3"><label class="form-label">Modelo</label><input type="text" class="form-control" name="modelo" /></div>
+                  <div class="col-md-6 mb-3"><label class="form-label">Marca</label><input type="text" class="form-control" name="marca" /></div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3"><label class="form-label">Número de Serie</label><input type="text" class="form-control" name="numero_serie" /></div>
+                  <div class="col-md-6 mb-3"><label class="form-label">Almacén</label><select class="form-control" name="id_almacen"><option>Almacén Principal</option></select></div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3"><label class="form-label">Estado</label><select class="form-control" name="estado"><option>Disponible</option><option>En Uso</option><option>Mantenimiento</option><option>Prestado</option><option>Baja</option></select></div>
+                  <div class="col-md-6 mb-3"><label class="form-label">Fecha de Adquisición</label><input type="date" class="form-control" name="fecha_adquisicion" /></div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3"><label class="form-label">Valor Aproximado</label><input type="number" class="form-control" name="valor_aproximado" /></div>
+                  <div class="col-md-6 mb-3"><label class="form-label">Vida Útil (meses)</label><input type="number" class="form-control" name="vida_util" /></div>
+                </div>
+                <div class="mb-3"><label class="form-label">Descripción</label><textarea class="form-control" rows="3" name="descripcion"></textarea></div>
+                <div class="mb-3"><label class="form-label">Observaciones</label><textarea class="form-control" rows="3" name="observaciones"></textarea></div>
+                <button type="submit" class="btn btn-success">Crear Item</button>
+              </form>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script src="../js/app.js"></script>
+  </body>
+</html>
