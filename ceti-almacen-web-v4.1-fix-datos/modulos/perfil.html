@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi Perfil - Sistema CETI</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/dashboard.css" rel="stylesheet" />
+  </head>
+  <body data-module="perfil" data-action="edit">
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="../dashboard.html">
+        <img src="../assets/images/logo-ceti.png" alt="CETI" height="30" class="d-inline-block align-top" />
+        Sistema Inventario
+      </a>
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <span class="navbar-text me-3">Admin CETI</span>
+          <a class="btn btn-outline-light btn-sm" href="../index.html">Cerrar Sesión</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+          <div class="position-sticky pt-3">
+            <ul class="nav flex-column">
+              <li class="nav-item"><a class="nav-link" href="../dashboard.html">Dashboard</a></li>
+              <li class="nav-item"><a class="nav-link" href="usuarios.html">Usuarios</a></li>
+              <li class="nav-item"><a class="nav-link" href="almacenes.html">Almacenes</a></li>
+              <li class="nav-item"><a class="nav-link" href="categorias.html">Categorías</a></li>
+              <li class="nav-item"><a class="nav-link" href="items.html">Items</a></li>
+              <li class="nav-item"><a class="nav-link" href="reportes.html">Reportes</a></li>
+              <li class="nav-item"><a class="nav-link active" href="perfil.html">Mi Perfil</a></li>
+            </ul>
+          </div>
+        </nav>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
+          <div class="d-flex justify-content-between align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2">Mi Perfil</h1>
+          </div>
+
+          <div id="perfil-msg" class="alert alert-success d-none"></div>
+
+          <div class="card" style="max-width:600px;">
+            <div class="card-body">
+              <form id="perfil-form">
+                <div class="mb-3">
+                  <label class="form-label">Usuario</label>
+                  <input type="text" class="form-control" name="usuario" readonly />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Rol</label>
+                  <input type="text" class="form-control" name="rol" readonly />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Nombre completo</label>
+                  <input type="text" class="form-control" name="nombre_completo" required />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Correo electrónico</label>
+                  <input type="email" class="form-control" name="email" required />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Nueva contraseña</label>
+                  <input type="password" class="form-control" name="contrasena" minlength="6" placeholder="Dejar en blanco para no cambiarla" />
+                </div>
+                <button type="submit" class="btn btn-success">Guardar cambios</button>
+              </form>
+            </div>
+          </div>
+
+          <div class="card mt-4" style="max-width:600px;">
+            <div class="card-header"><strong>Respaldo de datos</strong></div>
+            <div class="card-body">
+              <p class="text-muted small">Descarga una copia de seguridad de todos los datos del sistema (usuarios, almacenes, categorías, items y reportes) en un archivo JSON, o restaura uno previamente guardado.</p>
+              <button id="btn-export-backup" class="btn btn-outline-primary btn-sm" type="button">⬇ Descargar respaldo (JSON)</button>
+              <label class="btn btn-outline-secondary btn-sm mb-0" for="input-import-backup">⬆ Restaurar respaldo</label>
+              <input type="file" id="input-import-backup" accept="application/json" class="d-none" />
+              <hr />
+              <p class="text-muted small mb-1">¿Los datos se ven incompletos o desactualizados?</p>
+              <button type="button" id="btn-reset-demo" class="btn btn-outline-danger btn-sm">Restablecer datos de ejemplo</button>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script src="../js/app.js"></script>
+  </body>
+</html>

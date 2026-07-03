@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Código QR del Item - Sistema CETI</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/dashboard.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+    <style>
+      @media print {
+        .no-print { display: none !important; }
+        nav.navbar, nav.sidebar { display: none !important; }
+        main { margin-left: 0 !important; width: 100% !important; }
+      }
+    </style>
+  </head>
+  <body data-module="items" data-action="view">
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow no-print">
+      <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="../dashboard.html">
+        <img src="../assets/images/logo-ceti.png" alt="CETI" height="30" class="d-inline-block align-top" />
+        Sistema Inventario
+      </a>
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <span class="navbar-text me-3">Admin CETI</span>
+          <a class="btn btn-outline-light btn-sm" href="../index.html">Cerrar Sesión</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse no-print">
+          <div class="position-sticky pt-3">
+            <ul class="nav flex-column">
+              <li class="nav-item"><a class="nav-link" href="../dashboard.html">Dashboard</a></li>
+              <li class="nav-item"><a class="nav-link" href="usuarios.html">Usuarios</a></li>
+              <li class="nav-item"><a class="nav-link" href="almacenes.html">Almacenes</a></li>
+              <li class="nav-item"><a class="nav-link" href="categorias.html">Categorías</a></li>
+              <li class="nav-item"><a class="nav-link active" href="items.html">Items</a></li>
+              <li class="nav-item"><a class="nav-link" href="reportes.html">Reportes</a></li>
+              <li class="nav-item"><a class="nav-link" href="perfil.html">Mi Perfil</a></li>
+            </ul>
+          </div>
+        </nav>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
+          <div class="d-flex justify-content-between align-items-center pb-2 mb-3 border-bottom no-print">
+            <h1 class="h2">Código QR del Item</h1>
+            <a href="items.html" class="btn btn-secondary">Volver</a>
+          </div>
+
+          <div id="qr-container" class="row">
+            <div class="col-md-5 text-center mb-4">
+              <div class="card">
+                <div class="card-body">
+                  <canvas id="qr-canvas"></canvas>
+                  <p class="mt-2"><code id="item-codigo"></code></p>
+                  <div class="no-print">
+                    <button id="btn-download-qr" class="btn btn-primary btn-sm">Descargar PNG</button>
+                    <button id="btn-print-qr" class="btn btn-outline-secondary btn-sm">Imprimir etiqueta</button>
+                    <button id="btn-copy-qr" class="btn btn-outline-secondary btn-sm">Copiar datos</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-7 mb-4">
+              <div class="card">
+                <div class="card-header"><h5 class="mb-0">Información del Item</h5></div>
+                <div class="card-body">
+                  <table class="table table-sm">
+                    <tr><th width="30%">Nombre:</th><td id="item-nombre"></td></tr>
+                    <tr><th>Categoría:</th><td id="item-categoria"></td></tr>
+                    <tr><th>Almacén:</th><td id="item-almacen"></td></tr>
+                    <tr><th>Estado:</th><td id="item-estado"></td></tr>
+                  </table>
+                  <div class="alert alert-info mt-3 no-print">
+                    Este código QR contiene toda la información del item. Puede ser escaneado con cualquier aplicación lectora de QR (cámara nativa de Android/iOS).
+                  </div>
+                  <div class="mt-3 no-print">
+                    <label class="form-label">Datos codificados en el QR:</label>
+                    <textarea id="qr-data" class="form-control" rows="4" readonly></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script src="../js/app.js"></script>
+  </body>
+</html>
